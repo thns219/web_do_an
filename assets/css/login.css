@@ -1,0 +1,472 @@
+:root {
+    --primary: #f97316;
+    --primary-dark: #ea580c;
+    --primary-soft: #fff7ed;
+    --text-main: #111827;
+    --text-sub: #6b7280;
+    --border-soft: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+/* wrapper cho logo + form */
+.auth-wrapper {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.auth-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 8px;
+}
+
+.brand-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: var(--primary-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-text .name {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.brand-text .slogan {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.back-home-link {
+    font-size: 13px;
+    color: var(--primary-dark);
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid #fed7aa;
+    background: var(--primary-soft);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.back-home-link:hover {
+    background: #ffedd5;
+}
+
+.container {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.25);
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 960px;
+    min-height: 520px;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    padding: 40px 46px;
+    background: #fff;
+    z-index: 2;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.form-container h1 {
+    margin-bottom: 6px;
+    color: var(--text-main);
+}
+
+.form-subtitle {
+    font-size: 13px;
+    color: var(--text-sub);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.error-list {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 13px;
+    color: #b91c1c;
+    background: #fee2e2;
+    border-radius: 8px;
+    padding: 8px 10px;
+}
+
+.error-list .err+.err {
+    margin-top: 2px;
+}
+
+.form-container input {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    border-radius: 999px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-container input:focus {
+    border-color: #fb923c;
+    box-shadow: 0 0 0 1px #fed7aa;
+    background: #fff;
+}
+
+.form-container button {
+    border-radius: 999px;
+    border: none;
+    padding: 12px 45px;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: transform 80ms ease-in, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+}
+
+.form-container button:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.5);
+}
+
+.form-container button:active {
+    transform: scale(0.96);
+}
+
+.form-container a {
+    font-size: 12px;
+    text-decoration: none;
+    margin: 10px 0;
+    color: #6b7280;
+}
+
+.form-container a:hover {
+    color: var(--primary-dark);
+}
+
+/* Đăng nhập hiển thị mặc định */
+.sign-in-container {
+    left: 0;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sign-up-container {
+    left: 0;
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    pointer-events: auto;
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Overlay */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.overlay {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #fff;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 40px;
+    text-align: left;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+    gap: 10px;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+    left: 0;
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+.overlay-panel h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.overlay-panel p {
+    font-size: 14px;
+    margin: 5px 0 10px;
+    max-width: 260px;
+}
+
+.overlay-bullets {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.overlay-bullets li {
+    margin-left: 18px;
+}
+
+.overlay-panel button {
+    border-radius: 999px;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 32px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    margin-top: 6px;
+}
+
+.overlay-panel button:hover {
+    background: #fff;
+    color: #ea580c;
+}
+
+
+
+
+/* ===== TÚT LẠI NÚT OTP CHO HỢP STYLE HIỆN TẠI ===== */
+
+/* Hàng nút xác nhận + gửi lại */
+.btn-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    width: 100%;
+}
+
+/* Nút chính: Xác nhận / Hoàn tất */
+.btn-confirm {
+    flex: 1;
+    border-radius: 999px;
+    border: none;
+    padding: 10px 16px;
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(249, 115, 22, 0.4);
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 80ms ease-in;
+    margin-top: 0; /* bỏ margin thừa */
+}
+
+.btn-confirm:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 6px 14px rgba(249, 115, 22, 0.5);
+}
+
+.btn-confirm:active {
+    transform: scale(0.96);
+}
+
+/* Nút gửi lại: dạng outline, nhẹ hơn nút chính */
+.btn-resend {
+    flex: 1;
+    border-radius: 999px;
+    padding: 10px 14px;
+    border: 1px solid #fed7aa;
+    background: #fff7ed;
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: none;
+    margin-top: 0;
+}
+
+.btn-resend:hover:not([disabled]) {
+    background: #ffedd5;
+}
+
+.btn-resend[disabled] {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Dòng đếm ngược dưới 2 nút */
+.otp-countdown {
+    margin-top: 6px;
+    font-size: 12px;
+    color: var(--text-sub);
+    text-align: left;
+    width: 100%;
+}
+
+/* Nút Huỷ: biến thành kiểu link nhỏ bên dưới, không phải cục xám to */
+.btn-cancel {
+    margin-top: 8px;
+    background: transparent;
+    border: none;
+    color: var(--text-sub);
+    font-size: 12px;
+    cursor: pointer;
+    padding: 4px 0;
+    width: auto;
+    box-shadow: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-cancel:hover {
+    color: var(--primary-dark);
+    background: transparent;
+}
+
+/* Nếu muốn thêm icon nhỏ "×" trước Huỷ */
+.btn-cancel::before {
+    content: "✕";
+    font-size: 11px;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .auth-wrapper {
+        max-width: 100%;
+    }
+
+    .auth-header {
+        padding: 10px 14px;
+    }
+
+    .container {
+        width: 100%;
+        border-radius: 0;
+        min-height: 100vh;
+        box-shadow: none;
+    }
+
+    .overlay-container {
+        display: none;
+    }
+
+    .form-container {
+        width: 100%;
+        position: relative;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        padding: 32px 24px;
+    }
+
+    .sign-in-container {
+        border-bottom: 1px solid #e5e7eb;
+    }
+}

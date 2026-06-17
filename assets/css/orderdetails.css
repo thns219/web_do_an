@@ -1,0 +1,193 @@
+   :root {
+      --primary: #f97316;
+      --primary-dark: #ea580c;
+      --primary-soft: #fff7ed;
+      --border-soft: #e5e7eb;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --bg-page: #f3f4f6;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg-page);
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 16px auto 32px;
+      padding: 0 12px 24px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 16px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      margin-bottom: 16px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .order-status {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: #EE4D2D;
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: var(--text-sub);
+      font-size: 13px;
+    }
+
+    .items-list {
+      margin-top: 8px;
+    }
+
+    .item-row {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .item-row:last-child {
+      border-bottom: none;
+    }
+
+    .item-img {
+      width: 64px;
+      height: 64px;
+      border-radius: 0.75rem;
+      object-fit: cover;
+    }
+
+    .item-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .item-name {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .item-meta {
+      font-size: 13px;
+      color: var(--text-sub);
+    }
+
+    .item-price {
+      white-space: nowrap;
+      font-weight: 600;
+    }
+
+    .item-price span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    .total-box {
+      text-align: right;
+      font-size: 15px;
+      margin-top: 8px;
+    }
+
+    .total-label {
+      color: var(--text-sub);
+    }
+
+    .total-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: #EE4D2D;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      text-decoration: none;
+      font-size: 14px;
+      color: var(--primary-dark);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+    }
+
+    .back-link:hover {
+      background: var(--primary-soft);
+    }
+
+    .msg-box {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      font-size: 13px;
+    }
+
+    .msg-success {
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+
+    .msg-error {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+    }
+
+    .cancel-form {
+      margin-left: auto;
+    }
+
+    .btn-cancel {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+      transition: all 0.15s ease;
+    }
+
+    .btn-cancel:hover {
+      background: #fecaca;
+    }
+
+    @media (max-width: 600px) {
+      .item-row {
+        align-items: flex-start;
+      }
+      .cancel-form {
+        margin-left: 0;
+      }
+    }

@@ -1,0 +1,100 @@
+.main {
+    margin-top: 0px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.row.bordered {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 2.5px solid #d35400;
+    border-radius: 18px;
+    padding: 32px 40px;
+    background: #ffb84b;
+    gap: 48px;
+    max-width: 900px;
+    margin: 32px auto 0 auto;
+    min-height: 300px;
+}
+
+.row.bordered h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    flex: 1;
+    color: #fff;
+}
+
+.main-content {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.video-container {
+    flex-shrink: 0;
+    border-radius: 30px;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    border-radius: 20px;
+    display: block;
+    object-fit: cover;
+}
+
+.fooddishes .food-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 32px;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+.food-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    min-width: 220px;
+    max-width: 320px;
+    min-height: 320px;
+    font-size: 1.1rem;
+}
+
+.food-item:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(211,84,0,0.18);
+    border: 2px solid #ffb84b;
+}
+
+.fooddishes .food-grid .food-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover ;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+/* Make the whole card link behave like a block and inherit text styles */
+.food-item > .food-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.food-item > .food-link h3, .food-item > .food-link p {
+    margin: 0;
+}

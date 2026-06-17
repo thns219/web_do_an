@@ -1,0 +1,96 @@
+/* Footer tổng thể */
+.site-footer {
+  background: linear-gradient(135deg, #1e1e1e, #111);
+  color: #ccc;
+  padding: 50px 20px 20px;
+  margin-top: 40px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Container chia cột */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Cột chung */
+.footer-col h2 {
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.footer-col h4 {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 14px;
+  border-left: 4px solid #ffb84d;
+  padding-left: 8px;
+}
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #aaa;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col ul li {
+  margin: 8px 0;
+  font-size: 14px;
+}
+.footer-col ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.25s;
+}
+.footer-col ul li a:hover {
+  color: #ffb84d;
+}
+
+/* Contact info */
+.contact-info li {
+  font-size: 14px;
+  color: #bbb;
+}
+
+/* Social icons */
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #333;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+  text-decoration: none;
+}
+.social-links a:hover {
+  background: #ffb84d;
+  transform: translateY(-3px);
+  color: #111;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 15px;
+  font-size: 13px;
+  color: #888;
+}
+.footer-bottom span {
+  color: #ffb84d;
+  font-weight: 600;
+}
